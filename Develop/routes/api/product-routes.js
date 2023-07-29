@@ -6,7 +6,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   try {
-    const allProducts = await Product.findAll({
+    const allProducts = async Product.findAll({
       include: [
         Category,
         {
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 // get one product
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
-  try {const product = await Product.findOne({
+  try {const product = async Product.findOne({
     where: {
       id: req.params.id
     },
@@ -122,7 +122,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
-  try{const deleted = await Product.destroy({
+  try{const deleted = async Product.destroy({
     where: {
       id: req.params.id
     }

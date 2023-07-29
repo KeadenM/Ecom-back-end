@@ -6,7 +6,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all tags
   try {
-    const tags = await Tag.findAll({
+    const tags = async Tag.findAll({
       model: Product,
       through: ProductTag
     })
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   try {
-    const tag = await Tag.findOne({
+    const tag = async Tag.findOne({
       where: {
         id: req.params.id
       },
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   try {
-    const newTag = await Tag.create(req.body)
+    const newTag = async Tag.create(req.body)
     res.status(200).json(newTag)
   }
   catch (err){
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  try {const updatedTag = await Tag.update(req.body, {
+  try {const updatedTag = async Tag.update(req.body, {
     where: {
       id: req.params.id
     }
@@ -63,7 +63,7 @@ catch (err){
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
-  try {const deletedTag = await Tag.destroy({
+  try {const deletedTag = async Tag.destroy({
     where: {
       id: req.params.id
     }
