@@ -31,3 +31,7 @@ If you have any questions my github is: github.com/keadenM. You can also reach m
 
 ## License
 MIT https://opensource.org/licenses/MIT
+
+##Video tutorial
+https://drive.google.com/file/d/1s3Gl-9V4b9HqESvUuGuWEFy-pta4xHru/view
+
